@@ -1,46 +1,27 @@
 public class Usuario {
-
-    private String nome;
+    private String user;
     private String cpf;
+    private String senha;
     private int idade;
+    private String sexo;
     private String email;
+    private String nomeCartao;
+    private String numeroCartao;
+    private String codigoCartao;
 
-    public Usuario(String nome, String cpf, int idade, String email) {
-        this.nome = nome;
+    public Usuario(String user, String cpf, String senha, int idade, String sexo, String email,
+                   String nomeCartao, String numeroCartao, String codigoCartao) {
+        this.user = user;
         this.cpf = cpf;
+        this.senha = senha;
         this.idade = idade;
+        this.sexo = sexo;
         this.email = email;
+        this.nomeCartao = nomeCartao;
+        this.numeroCartao = numeroCartao;
+        this.codigoCartao = codigoCartao;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    public String getUser() { return user; }
+    public String getCpf() { return cpf; }
 }
