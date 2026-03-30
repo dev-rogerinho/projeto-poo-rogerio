@@ -5,18 +5,27 @@ public class Bilhete {
     private int linha;
     private int coluna;
 
-    public Bilhete(Usuario usuario, Sessao sessao, int linha, int coluna) {
-        this.usuario = usuario;
-        this.sessao = sessao;
-        this.linha = linha;
-        this.coluna = coluna;
-        this.valor = sessao.getFilme().getValor();
+   public Bilhete(Usuario usuario, Sessao sessao, int linha, int coluna) {
+    this.usuario = usuario;
+    this.sessao = sessao;
+    this.linha = linha;
+    this.coluna = coluna;
+    double valorBase = sessao.getFilme().getValor();
+    this.valor = usuario.calcularValor(valorBase); 
+}
+    public Usuario getUsuario() { 
+        return usuario; }
+    public Sessao getSessao() { 
+        return sessao; 
+    }
+    public double getValor() { 
+        return valor; 
     }
 
-    public Usuario getUsuario() { return usuario; }
-    public Sessao getSessao() { return sessao; }
-    public double getValor() { return valor; }
-
-    public int getLinha() { return linha; }
-    public int getColuna() { return coluna; }
+    public int getLinha() { 
+        return linha; 
+    }
+    public int getColuna() { 
+        return coluna; 
+    }
 }

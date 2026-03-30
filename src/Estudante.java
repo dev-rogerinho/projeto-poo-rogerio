@@ -6,6 +6,6 @@ public class Estudante extends Usuario {
     }
 
     public double calcularValor(double valor) {
-        return valor / 2; // paga metade
+        return valor / 2;
     }
 }

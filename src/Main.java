@@ -1,52 +1,43 @@
 public class Main {
-
     public static void main(String[] args) {
 
-        Usuario usuario = new Usuario(
-                "Joao",
-                "123456789",
-                20,
-                "joao@email.com"
-        );
+        
+        Usuario u = new Usuario("João", "123", "senha", 20, "M", "email",
+                "Joao", "1111", "123");
 
-        Filme filme = new Filme(
-                "Homem Aranha",
-                120,
-                "Filme de ação",
-                20.0
-        );
+        Estudante e = new Estudante("Maria", "456", "programaçao", 18, "F", "email",
+                "Maria", "2222", "456");
+             
+        Critico critico = new Critico("Leo Dias", "555", "fofoca", 45, "M", "email","leo", "1234", "554", "Globo");
 
-        Sessao sessao = new Sessao(filme, "18:00 - 20:00");
+        Filme f = new Filme("Batman", 20.0);
+        Filme f2 = new Filme("Orgulho e Preconceito", 20.0);
 
-        Sala sala = new Sala(5);
-        sala.adicionarSessao(0, sessao);
+        Sessao s = new Sessao(f, 1, TipoSala.TRES_D);
+        s.reservarCadeira(2, 5);
+        Sessao s2 = new Sessao(f2, 2,TipoSala.COMUM);
+        s2.reservarCadeira(4, 7);
 
-        sessao.ocuparCadeira(2,3);
+        Bilhete b1 = new Bilhete(u, s, 2, 5);
+        Bilhete b2 = new Bilhete(e, s, 2, 6);
+        Bilhete b3 = new Bilhete(critico, s2, 3, 4);
 
-        Bilhete bilhete = new Bilhete(
-                usuario,
-                sala,
-                sessao,
-                filme,
-                2,
-                3,
-                filme.getValor()
-        );
+        Compra c = new Compra();
+        c.adicionarBilhete(b1);
+        c.adicionarBilhete(b2);
+        c.adicionarBilhete(b3);
 
-        Compra compra = new Compra();
-        compra.adicionarBilhete(bilhete);
+        c.adicionarProduto(Produto.PIPOCA);
+        c.adicionarProduto(Produto.REFRIGERANTE);
 
-System.out.println("      INGRESSO     ");
-System.out.println("Usuario: " + usuario.getNome());
-System.out.println("Filme: " + filme.getNome());
-System.out.println("Horario: " + bilhete.getSessao().getHorario());
-System.out.println("Sala: 1");
-System.out.println("Cadeira: Linha " + bilhete.getLinha() +
-                   " Coluna " + bilhete.getColuna());
-System.out.println("Valor: R$ " + compra.calcularTotal());
+        double total = c.calcularTotal();
+
+        double totalComDesconto = c.calcularTotal(CupomPromocional.DESCONTO30);
+
+        c.mostrarCompra();
+
+        System.out.println("Total normal: R$ " + total);
+        System.out.println("Total com desconto: R$ " + totalComDesconto);
+        
     }
 }
-
-
-
-//AINDA A TERMINAR O MAIN!

@@ -1,11 +1,13 @@
 public class Sessao {
     private Filme filme;
-    private boolean[][] cadeiras = new boolean[10][15];
+    private boolean[][] cadeiras = new boolean[10][15]; 
     private int numeroSala; 
+    private TipoSala tipoSala;
 
-    public Sessao(Filme filme, int numeroSala) {
+    public Sessao(Filme filme, int numeroSala, TipoSala tipoSala) {
         this.filme = filme;
         this.numeroSala = numeroSala;
+        this.tipoSala = tipoSala;
     }
 
     public boolean reservarCadeira(int linha, int coluna) {
@@ -23,4 +25,8 @@ public class Sessao {
     public int getNumeroSala() {
         return numeroSala;
     }
+
+    public TipoSala getTipoSala() {
+    return tipoSala;
+}
 }
