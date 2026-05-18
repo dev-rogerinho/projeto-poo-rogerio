@@ -12,4 +12,10 @@ public class Critica {
     public String getMensagem() {
         return mensagem;
     }
+    public String getNome() {
+    return nome;
+}
+    public String getOrigem() {
+    return origem;
+}
 }
