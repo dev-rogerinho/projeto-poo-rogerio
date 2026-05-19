@@ -1,4 +1,5 @@
 public enum CupomPromocional {
+    DESCONTO0(0.0),
     DESCONTO10(0.10),
     DESCONTO20(0.20),
     DESCONTO30(0.30);
