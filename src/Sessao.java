@@ -45,4 +45,4 @@ public class Sessao {
 public boolean isSessaoEncerrada() {
     return sessaoEncerrada;
 }
-}
+} 

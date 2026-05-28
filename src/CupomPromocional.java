@@ -13,4 +13,4 @@ public enum CupomPromocional {
     public double getDesconto() {
         return desconto;
     }
-}
+} 

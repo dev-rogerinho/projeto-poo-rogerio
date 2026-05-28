@@ -13,4 +13,4 @@ public enum TipoSala {
     public double getMultiplicador() {
         return multiplicador;
     }
-}
+} 
