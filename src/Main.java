@@ -3,171 +3,364 @@ public class Main {
 
         // usuários
 
-        Usuario u = new Usuario("João", "123", "senha", 20, "M", "email", "Joao", "1111", "123");
+        Usuario u1 = new Usuario(
+                "João",    
+                "123",
+                "senha",
+                20,
+                "M",
+                "email",
+                "Joao",
+                "1111",
+                "123");
 
-        Estudante e = new Estudante("Maria", "456", "programacao", 18, "F", "email", "Maria", "2222", "456");
+        Estudante e1 = new Estudante(
+                "Maria",
+                "456",
+                "programacao",
+                18,
+                "F",
+                "email",
+                "Maria",
+                "2222",
+                "456");
 
-        Critico critico = new Critico("Leo Dias", "555", "fofoca", 45, "M", "email", "leo", "1234", "554", "Globo");
+        Critico critico = new Critico(
+                "Leo Dias",
+                "555",
+                "fofoca",
+                45,
+                "M",
+                "email",
+                "leo",
+                "1234",
+                "554",
+                "Globo");
 
         // funcionário e administrador
 
-        Funcionario funcionario = new Funcionario("Carlos", 30, "carlos@email", 2500);
+        Funcionario funcionario = new Funcionario(
+                "Carlos",
+                30,
+                "carlos@email",
+                2500);
 
-        Administrador admin = new Administrador("Ana", 40, "ana@email", 5000, 1);
+        Administrador admin = new Administrador(
+                "Ana",
+                40,
+                "ana@email",
+                5000,
+                1);
 
         // filmes
 
-        Filme f = new Filme("Batman", 20.0, 120, "Filme do Batman", true);
+        Filme f1 = new Filme(
+                "Batman",
+                20.0,
+                120,
+                "Filme do Batman",
+                true);
 
-        Filme f2 = new Filme("Orgulho e Preconceito", 20.0, 130, "Romance clássico", false);
+        Filme f2 = new Filme(
+                "Orgulho e Preconceito",
+                20.0,
+                130,
+                "Romance clássico",
+                true);
+
+        Filme f3 = new Filme(
+                "Titanic",
+                18.0,
+                180,
+                "Drama clássico",
+                false);
 
         // sessões
 
-        Sessao s = new Sessao(f, 1, TipoSala.TRES_D, "18:00 - 20:00", false);
+        Sessao s1 = new Sessao(
+                f1,
+                1,
+                TipoSala.TRES_D,
+                "18:00 - 20:00",
+                false);
 
-        Sessao s2 = new Sessao(f2, 2, TipoSala.COMUM, "20:00 - 22:00", false);
+        Sessao s2 = new Sessao(
+                f2,
+                2,
+                TipoSala.COMUM,
+                "20:00 - 22:00",
+                false);
+
+        Sessao s3 = new Sessao(
+                f3,
+                3,
+                TipoSala.XD,
+                "22:00 - 01:00",
+                false);
 
         // sala
 
         Sala sala = new Sala(5);
 
-        sala.adicionarSessao(s);
+        sala.adicionarSessao(s1);
         sala.adicionarSessao(s2);
+        sala.adicionarSessao(s3);
+
+        // controller
+
+        CinemaController controller =
+                new CinemaController();
 
         // métodos funcionário/admin
 
-        funcionario.adicionarUsuario(u);
-        funcionario.alterarUsuario(e);
+        funcionario.adicionarUsuario(u1);
+        funcionario.alterarUsuario(e1);
 
-        admin.adicionarUsuario(u);
-        admin.alterarUsuario(e);
-        admin.excluirUsuario(e);
+        admin.adicionarUsuario(u1);
+        admin.alterarUsuario(e1);
+        admin.excluirUsuario(e1);
 
-        funcionario.incluirFilme(f);
+        funcionario.incluirFilme(f1);
 
         admin.alterarFilme(f2);
-        admin.excluirFilme(f);
-
-        // bilhetes
-
-        Bilhete b1 = null;
-        Bilhete b2 = null;
-        Bilhete b3 = null;
-
-        try {
-
-            b1 = new Bilhete(u, s, 2, 5);
-
-        } catch (VendasException erro) {
-
-            System.out.println("Erro: " + erro.getMessage());
-        }
-
-        try {
-
-            b2 = new Bilhete(e, s, 2, 6);
-
-        } catch (VendasException erro) {
-
-            System.out.println("Erro: " + erro.getMessage());
-        }
-
-        try {
-
-            b3 = new Bilhete(critico, s2, 3, 4);
-
-        } catch (VendasException erro) {
-
-            System.out.println("Erro: " + erro.getMessage());
-        }
+        admin.excluirFilme(f1);
 
         // compra
 
-        Compra c = new Compra();
+        Compra c = controller.criarCompra();
 
-        if (b1 != null) {
+        // compra de bilhetes
+
+        try {
+
+            Bilhete b1 =
+                    controller.comprarBilhete(
+                            u1,
+                            s1,
+                            2,
+                            5);
+
             c.adicionarBilhete(b1);
+
+        } catch (VendasException erro) {
+
+            System.out.println(
+                    "Erro: "
+                    + erro.getMessage());
         }
 
-        if (b2 != null) {
+        try {
+
+            Bilhete b2 =
+                    controller.comprarBilhete(
+                            e1,
+                            s1,
+                            2,
+                            6);
+
             c.adicionarBilhete(b2);
+
+        } catch (VendasException erro) {
+
+            System.out.println(
+                    "Erro: "
+                    + erro.getMessage());
         }
 
-        if (b3 != null) {
+        try {
+
+            Bilhete b3 =
+                    controller.comprarBilhete(
+                            critico,
+                            s2,
+                            3,
+                            4);
+
             c.adicionarBilhete(b3);
+
+        } catch (VendasException erro) {
+
+            System.out.println(
+                    "Erro: "
+                    + erro.getMessage());
         }
 
         // produtos
 
-        c.adicionarProduto(Produto.PIPOCA);
-        c.adicionarProduto(Produto.REFRIGERANTE);
+        controller.adicionarProduto(
+                c,
+                Produto.PIPOCA);
+
+        controller.adicionarProduto(
+                c,
+                Produto.REFRIGERANTE);
 
         // críticas
 
-        critico.atribuirNota(10, f);
-        critico.atribuirCritica("Filme muito bom.", f);
+        critico.atribuirNota(10, f1);
 
-        critico.atribuirNota(8, f);
-        critico.atribuirCritica("Ótima atuação do protagonista.", f);
+        critico.atribuirCritica(
+                "Filme muito bom.",
+                f1);
+
+        critico.atribuirNota(8, f1);
+
+        critico.atribuirCritica(
+                "Ótima atuação do protagonista.",
+                f1);
 
         critico.atribuirNota(7, f2);
-        critico.atribuirCritica("Bom, mas um pouco lento.", f2);
+
+        critico.atribuirCritica(
+                "Bom, mas um pouco lento.",
+                f2);
 
         // sessões disponíveis
 
-        System.out.println("\n===== SESSÕES DISPONÍVEIS =====");
+        System.out.println(
+                "\n==============================");
+
+        System.out.println(
+                "===== SESSÕES DISPONÍVEIS =====");
 
         sala.mostrarSessoes();
 
         // compra
 
-        System.out.println("\n===== COMPRA =====");
+        System.out.println(
+                "\n==============================");
+
+        System.out.println(
+                "===== COMPRA =====");
 
         c.mostrarCompra();
 
-        // teste cadeira ocupada
-
-        System.out.println("\n===== TESTE DE EXCEÇÃO =====");
-
-        try {
-
-            s.reservarCadeira(2, 5);
-
-            s.reservarCadeira(2, 5);
-
-        } catch (VendasException erro) {
-
-            System.out.println("Erro: " + erro.getMessage());
-        }
-
         // filmes
 
-        System.out.println("\n===== FILME 1 =====");
+        System.out.println(
+                "\n==============================");
 
-        System.out.println("Nome: " + f.getNome());
-        System.out.println("Nota média: " + f.getNota());
-        System.out.println("Quantidade de críticos: " + f.getQuantidadeCriticos());
+        System.out.println(
+                "===== FILME 1 =====");
 
-        System.out.println("Críticas:");
+        System.out.println(
+                "Nome: "
+                + f1.getNome());
 
-        f.mostrarCriticas();
+        System.out.println(
+                "Nota média: "
+                + f1.getNota());
 
-        System.out.println("\n===== FILME 2 =====");
+        System.out.println(
+                "Quantidade de críticos: "
+                + f1.getQuantidadeCriticos());
 
-        System.out.println("Nome: " + f2.getNome());
-        System.out.println("Nota média: " + f2.getNota());
-        System.out.println("Quantidade de críticos: " + f2.getQuantidadeCriticos());
+        System.out.println(
+                "Críticas:");
 
-        System.out.println("Críticas:");
+        f1.mostrarCriticas();
+
+        System.out.println(
+                "\n===== FILME 2 =====");
+
+        System.out.println(
+                "Nome: "
+                + f2.getNome());
+
+        System.out.println(
+                "Nota média: "
+                + f2.getNota());
+
+        System.out.println(
+                "Quantidade de críticos: "
+                + f2.getQuantidadeCriticos());
+
+        System.out.println(
+                "Críticas:");
 
         f2.mostrarCriticas();
 
         // total
 
-        System.out.println("\n===== TOTAL =====");
+        System.out.println(
+                "\n==============================");
 
-        System.out.println("Total normal: R$ " + c.calcularTotal());
+        System.out.println(
+                "===== TOTAL =====");
 
-        System.out.println("Total com desconto: R$ " + c.calcularTotal(CupomPromocional.DESCONTO10));
+        System.out.println(
+                "Total normal: R$ "
+                + c.calcularTotal());
+
+        System.out.println(
+                "Total com desconto: R$ "
+                + c.calcularTotal(
+                        CupomPromocional.DESCONTO10));
+
+        // testes de exceção
+
+        System.out.println(
+                "\n==============================");
+
+        System.out.println(
+                "===== TESTES DE EXCEÇÃO =====");
+
+        // cadeira ocupada
+
+        try {
+
+            controller.comprarBilhete(
+                    u1,
+                    s1,
+                    2,
+                    5);
+
+        } catch (VendasException erro) {
+
+            System.out.println(
+                    "Erro cadeira ocupada: "
+                    + erro.getMessage());
+        }
+
+        // filme fora de cartaz
+
+        try {
+
+            controller.comprarBilhete(
+                    u1,
+                    s3,
+                    1,
+                    1);
+
+        } catch (VendasException erro) {
+
+            System.out.println(
+                    "Erro filme fora de cartaz: "
+                    + erro.getMessage());
+        }
+
+        // sessão encerrada
+
+        Sessao s4 = new Sessao(
+                f1,
+                4,
+                TipoSala.COMUM,
+                "23:00 - 01:00",
+                true);
+
+        try {
+
+            controller.comprarBilhete(
+                    u1,
+                    s4,
+                    1,
+                    1);
+
+        } catch (VendasException erro) {
+
+            System.out.println(
+                    "Erro sessão encerrada: "
+                    + erro.getMessage());
+        }
     }
 }
