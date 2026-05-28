@@ -105,7 +105,7 @@ git clone https://github.com/dev-rogerinho/projeto-poo-rogerio.git
 
 **2. Acesse a pasta do projeto**
 ```bash
-cd sistema-cinema-poo
+cd projeto-poo-rogerio
 ```
 
 **3. Compile os arquivos**
