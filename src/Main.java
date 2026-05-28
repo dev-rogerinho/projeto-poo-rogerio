@@ -31,8 +31,8 @@ public class Main {
 
         Sala sala = new Sala(5);
 
-        sala.adicionarSessao(0, s);
-        sala.adicionarSessao(1, s2);
+        sala.adicionarSessao(s);
+        sala.adicionarSessao(s2);
 
         // métodos funcionário/admin
 

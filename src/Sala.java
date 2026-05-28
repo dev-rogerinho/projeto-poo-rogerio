@@ -5,8 +5,13 @@ public class Sala { // alterar
         sessoes = new Sessao[tamanho]; // Instancia o array
     }
 
-    public void adicionarSessao(int index, Sessao sessao) {
-        sessoes[index] = sessao; 
+    public void adicionarSessao(Sessao s){
+        for(int i = 0; i < sessoes.length; i++){
+            if(sessoes[i] == null){
+                sessoes[i] = s;
+                return;
+            }
+        }
     }
 
     public Sessao getSessao(int index) {
@@ -26,4 +31,4 @@ public class Sala { // alterar
             }
         }
     }
-}
+} 
