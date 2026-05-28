@@ -1,16 +1,119 @@
-# sistema-cinema-poo
-Sistema de Cinema - Programação Orientada a Objetos (Java)
-Descrição
+# 🎬 Sistema de Cinema — POO em Java
 
-O Sistema de Cinema é um projeto desenvolvido em Java utilizando os conceitos de Programação Orientada a Objetos (POO).
-O objetivo é simular o funcionamento básico de um cinema, permitindo o gerenciamento de filmes e operações relacionadas ao sistema.
+> Projeto desenvolvido para a disciplina de Programação Orientada a Objetos utilizando Java.
 
+O sistema simula o funcionamento básico de um cinema, permitindo:
 
- Como executar o projeto
-1️ - Clonar o repositório
-git clone https://github.com/JoaoFelipe005/sistema-cinema-poo.git
-2️ - Entrar na pasta do projeto
+- Gerenciamento de filmes
+- Criação de sessões
+- Compra de bilhetes
+- Reserva de cadeiras
+- Aplicação de descontos
+- Críticas e avaliações de filmes
+- Tratamento de exceções
+- Organização utilizando o padrão MVC
+
+---
+
+## 👥 Integrantes do Grupo
+
+| Nome | Usuário GitHub |
+|------|----------------|
+| Jose Bezerra | [josesandesneto-cyber](https://github.com/josesandesneto-cyber) |
+| João Felipe | [JoaoFelipe005](https://github.com/JoaoFelipe005) |
+| Luiz Rogério | [dev-rogerinho](https://github.com/dev-rogerinho) |
+
+---
+
+## 📚 Conceitos de POO Utilizados
+
+- Encapsulamento
+- Herança
+- Polimorfismo
+- Abstração
+- Interfaces
+- Sobrescrita de métodos
+- Tratamento de exceções
+- Enumerações (enum)
+- Padrão de Projeto MVC
+
+---
+
+## 🎟️ Funcionalidades do Sistema
+
+### 👤 Usuários
+
+- Usuário comum
+- Estudante com meia entrada
+- Crítico com sistema de notas e críticas
+
+### 🎥 Filmes
+
+- Nome, duração e sinopse
+- Nota média
+- Vetor de críticas
+- Controle de filmes em cartaz
+
+### 🪑 Sessões
+
+- Número da sala
+- Tipo da sala
+- Horário
+- Reserva de cadeiras utilizando matriz booleana
+
+### 🛒 Compra
+
+- Compra de múltiplos bilhetes
+- Adição de produtos
+- Aplicação de cupons promocionais
+- Cálculo automático do total
+
+---
+
+## ⚠️ Tratamento de Exceções
+
+O sistema trata:
+
+- Compra de filme fora de cartaz
+- Sessão já encerrada
+- Tentativa de reservar cadeira ocupada
+
+---
+
+## 🏗️ Estrutura do Projeto
+
+### 📌 Model
+Classes responsáveis pelas regras e dados do sistema:
+`Usuario` · `Estudante` · `Critico` · `Filme` · `Sessao` · `Compra` · `Bilhete`
+
+### 📌 Controller
+Classe responsável pela lógica do sistema:
+`CinemaController`
+
+### 📌 View
+Classe responsável pela execução e exibição:
+`Main`
+
+---
+
+## ▶️ Como Executar o Projeto
+
+**1. Clone o repositório**
+```bash
+git clone https://github.com/dev-rogerinho/projeto-poo-rogerio.git
+```
+
+**2. Acesse a pasta do projeto**
+```bash
 cd sistema-cinema-poo
-3️ - Compilar os arquivos Java
-4️ - Executar o programa
+```
+
+**3. Compile os arquivos**
+```bash
+javac *.java
+```
+
+**4. Execute o programa**
+```bash
 java Main
+```
